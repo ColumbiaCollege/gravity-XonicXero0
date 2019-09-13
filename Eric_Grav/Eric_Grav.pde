@@ -4,7 +4,8 @@
 //spaceship movement 
 float t;
 //star movement 
-float s;
+float sx;
+float sy;
 
 void setup() {
   size(1200, 600);
@@ -12,7 +13,7 @@ void setup() {
 }
 
 void draw() {
-  background(#0C0464);
+  background(#030303);
 
   //grid
   //stroke(255);
@@ -21,31 +22,40 @@ void draw() {
   //  line(0, 100*i, 1800, 100*i);
   //}
 
-  //star(from old picture)
+for (int star = 0; star < 1200; star = star + 10){ 
+float r = random (595);
+strokeWeight(0);
+fill(#E7E8E1);
+ellipse(1+star,1+r,2,2);
+}
+
+  //star(edited from old picture)
   strokeWeight(8);
-  stroke(#120974);
-  fill(#22679B);
+  stroke(#1F1F1F);
+  fill(#E7E8E1);
   ellipseMode(RADIUS);
-  ellipse(-100+s, 150, 90, 90);
+  ellipse(-300+sx, 175+sy, 90, 90);
   strokeWeight(8);
   stroke(#FFF798);
   fill(#FFEC12);
   ellipseMode(RADIUS);
-  ellipse(-100+s, 150, 60, 60);
+  ellipse(-300+sx, 175+sy, 60, 60);
   strokeWeight(6);
   stroke(#FFD012);
   fill(#FFC012);
   ellipseMode(RADIUS);
-  ellipse(-100+s, 150, 50, 50);
+  ellipse(-300+sx, 175+sy, 50, 50);
 
 //movement for star
-s = s + .5;
+sx = sx + .5;
+sy = sy + .1;
 //testing cords
-println(s);
+println(sx);
 
 //reset star position 
-  if (s > 1800) {
-    s = 0;
+  if (sx > 1800) {
+    sx = 0;
+    sy = 0;
   }
 
   //spaceship 
