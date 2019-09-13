@@ -3,6 +3,8 @@
 //starting float, variables, strings, etc
 //spaceship movement 
 float t;
+//star movement 
+float s;
 
 void setup() {
   size(1200, 600);
@@ -10,7 +12,7 @@ void setup() {
 }
 
 void draw() {
-  background(#312F2F);
+  background(#0C0464);
 
   //grid
   //stroke(255);
@@ -19,7 +21,35 @@ void draw() {
   //  line(0, 100*i, 1800, 100*i);
   //}
 
+  //star(from old picture)
+  strokeWeight(8);
+  stroke(#120974);
+  fill(#22679B);
+  ellipseMode(RADIUS);
+  ellipse(-100+s, 150, 90, 90);
+  strokeWeight(8);
+  stroke(#FFF798);
+  fill(#FFEC12);
+  ellipseMode(RADIUS);
+  ellipse(-100+s, 150, 60, 60);
+  strokeWeight(6);
+  stroke(#FFD012);
+  fill(#FFC012);
+  ellipseMode(RADIUS);
+  ellipse(-100+s, 150, 50, 50);
+
+//movement for star
+s = s + .5;
+//testing cords
+println(s);
+
+//reset star position 
+  if (s > 1800) {
+    s = 0;
+  }
+
   //spaceship 
+  strokeWeight(1);
   stroke(#1F1F1F); 
   //fuel
   fill(#B98F24);
@@ -42,7 +72,7 @@ void draw() {
   //movement for spaceship
   t = t - 2;
   //testing cords
-  println(t); 
+  //println(t); 
 
   //reset spaceship position 
   if (t < -1500) {
